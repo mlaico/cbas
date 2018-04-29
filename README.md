@@ -20,3 +20,20 @@ On the <a href=http://cocodataset.org/#download>COCO download page</a> select:
 Unzip, and place:
 * the images in: coco/images/
 * the annotations in: coco/annotations/
+
+### 3.) Download/clone this cbas repository
+* The 'PythonAPI' and 'images' directories should go right into the 'coco' folder
+
+### 4.)[OPTIONAL] Set up the pre-made CBAS-36 dataset (do this if you don't want to download COCO)
+* Unzip the following files:
+    * coco/images/cbas36_train/backpack2elephant.zip
+    * coco/images/cbas36_train/handbag3umbrella.zip
+    * coco/images/cbas36_val/backpack3umbrella.zip
+    
+### 5.) [OPTIONAL] Create CBAS-80 and CBAS-36 from scratch
+* If you downloaded COCO, you should be able to run create_cbas80_and_cbas36.ipynb which will walk you through creating these datasets
+
+
+### 6.) Run the training demo on CBAS-36
+* If you skipped steps 2 & 5, make sure to complete step 4.
+* Now you can run the PyTorch demo cbas36_train_demo.ipynb to train and evaluate LeNet on CBAS-36
