@@ -19,6 +19,7 @@ On the <a href=http://cocodataset.org/#download>COCO download page</a> select:
 
 Unzip, and place:
 * the `train2017/` image folder (containing 118k images) in: `coco/images/`
+    * e.g. `coco/images/train2017/`
 * the annotations in: `coco/annotations/`
 
 ### 3.) Download/clone this cbas repository
