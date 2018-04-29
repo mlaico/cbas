@@ -14,7 +14,7 @@ This is only necessary if you want to run the coco demos and/or build cbas from 
 
 On the <a href=http://cocodataset.org/#download>COCO download page</a> select: 
 * the "2017 Train images [118K/18GB]" link
-  * The 2017 COCO eval set is so small compared to the train set (5K vs 118K) that I just split the 118K train set into train and val and didn't bother with their val set.  It wouldn't hurt to add it to our val set.
+    * The 2017 COCO eval set is so small compared to the train set (5K vs 118K) that I just split the 118K train set into train and val and didn't bother with their val set.  It wouldn't hurt to add it to our val set.
 * the "2017 Train/Val annotations [241MB]" link
 
 Unzip, and place:
@@ -23,7 +23,7 @@ Unzip, and place:
 * the annotations in: `coco/annotations/`
 
 ### 3.) Download/clone this cbas repository
-* The `PythonAPI/` and `images/` directories should go right into the `coco/` folder
+* Copy the contents of `images/`,`PythonAPI/`, and `PythonAPI/pycocotools/` from `cbas/` over to the same directories in `coco/`
 
 ### 4.)[OPTIONAL] Set up the pre-made CBAS-36 dataset (do this if you don't want to download COCO)
 * Unzip the following files:
