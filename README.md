@@ -30,6 +30,12 @@ Unzip, and place:
     * `coco/images/cbas36_train/backpack2elephant.zip`
     * `coco/images/cbas36_train/handbag2umbrella.zip`
     * `coco/images/cbas36_val/backpack2umbrella.zip`
+* You'll want to move the category folders out of the root zip folder so you end up with:
+    * `coco/images/cbas36_train/backpack/`
+    * `coco/images/cbas36_train/banana/`
+    * ...
+    * `coco/images/cbas36_train/umbrella/`
+* Same goes for `coco/images/cbas36_val`
     
 ### 5.) [OPTIONAL] Create CBAS-80 and CBAS-36 from scratch
 * If you downloaded COCO, you should be able to run `create_cbas80_and_cbas36.ipynb` which will walk through creating these datasets
