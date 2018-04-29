@@ -10,7 +10,7 @@
 
 ### 2.) [OPTIONAL] Download the COCO dataset from the <a href=http://cocodataset.org/#download>COCO download page</a>
 
-This is only necessary if you want to run the coco demos and/or build cbas from scratch.  The training set is 18GB but downloads surprisingly fast
+This is only necessary if you want to run the coco demos and/or build cbas from scratch.  The training set is 18GB but downloads surprisingly fast.
 
 On the <a href=http://cocodataset.org/#download>COCO download page</a> select: 
 * the "2017 Train images [118K/18GB]" link
@@ -18,7 +18,7 @@ On the <a href=http://cocodataset.org/#download>COCO download page</a> select:
 * the "2017 Train/Val annotations [241MB]" link
 
 Unzip, and place:
-* the images in: coco/images/
+* the "train2017" image folder (containing 118k images) in: coco/images/
 * the annotations in: coco/annotations/
 
 ### 3.) Download/clone this cbas repository
@@ -31,7 +31,7 @@ Unzip, and place:
     * coco/images/cbas36_val/backpack3umbrella.zip
     
 ### 5.) [OPTIONAL] Create CBAS-80 and CBAS-36 from scratch
-* If you downloaded COCO, you should be able to run create_cbas80_and_cbas36.ipynb which will walk you through creating these datasets
+* If you downloaded COCO, you should be able to run create_cbas80_and_cbas36.ipynb which will walk through creating these datasets
 
 
 ### 6.) Run the training demo on CBAS-36
