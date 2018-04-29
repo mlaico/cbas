@@ -27,8 +27,8 @@ Unzip, and place:
 ### 4.)[OPTIONAL] Set up the pre-made CBAS-36 dataset (do this if you don't want to download COCO)
 * Unzip the following files:
     * `coco/images/cbas36_train/backpack2elephant.zip`
-    * `coco/images/cbas36_train/handbag3umbrella.zip`
-    * `coco/images/cbas36_val/backpack3umbrella.zip`
+    * `coco/images/cbas36_train/handbag2umbrella.zip`
+    * `coco/images/cbas36_val/backpack2umbrella.zip`
     
 ### 5.) [OPTIONAL] Create CBAS-80 and CBAS-36 from scratch
 * If you downloaded COCO, you should be able to run `create_cbas80_and_cbas36.ipynb` which will walk through creating these datasets
