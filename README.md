@@ -23,24 +23,17 @@ Unzip, and place:
 * the annotations in: `coco/annotations/`
 
 ### 3.) Download/clone this cbas repository
-* Copy the contents of `images/`,`PythonAPI/`, and `PythonAPI/pycocotools/` from `cbas/` over to the same directories in `coco/`
+* Clone the `cbas/` repository into the `coco/` directory:
+    * e.g.: `coco/cbas/`
 
-### 4.)[OPTIONAL] Set up the pre-made CBAS-36 dataset (do this if you don't want to download COCO)
-* Unzip the following files:
-    * `coco/images/cbas36_train/backpack2elephant.zip`
-    * `coco/images/cbas36_train/handbag2umbrella.zip`
-    * `coco/images/cbas36_val/backpack2umbrella.zip`
-* You'll want to move the category folders out of the root zip folder so you end up with:
-    * `coco/images/cbas36_train/backpack/`
-    * `coco/images/cbas36_train/banana/`
-    * ...
-    * `coco/images/cbas36_train/umbrella/`
-* Same goes for `coco/images/cbas36_val`
+### 4.)[OPTIONAL] Set up the pre-made CBAS-34 dataset.  Download the CBAS-34 and CBAS-LS zip files from the google drive folder (link on discord)
+* Unzip the and place into the `coco/images/` folder:
+    * e.g.`coco/images/cbas34_train/`
+    * e.g.`coco/images/cbas34_val/`
     
-### 5.) [OPTIONAL] Create CBAS-80 and CBAS-36 from scratch
+### 5.) [OPTIONAL] Create CBAS-80 and CBAS-34 from scratch
 * If you downloaded COCO, you should be able to run `create_cbas80_and_cbas36.ipynb` which will walk through creating these datasets
 
-
-### 6.) Run the training demo on CBAS-36
+### 6.) Run the training demo on CBAS-34
 * If you skipped steps 2 & 5, make sure to complete step 4.
-* Now you can run the PyTorch demo `cbas36_train_demo.ipynb` to train and evaluate LeNet on CBAS-36
+* Now you can run the PyTorch demo `cbas34_train_demo.ipynb` to train and evaluate LeNet on CBAS-36
