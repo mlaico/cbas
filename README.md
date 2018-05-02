@@ -1,29 +1,27 @@
 # Results
 _Top-1, Base classes_
 
-| Curriculum   |	Model         | 	   Parameters    | Convergence time | 	  Test accuracy    | 
-| :------------|  :-----------| :--------------: | :--------------: | :------------------: |
-| None         |  LeNet       |         -        |         -        |            -         |
-| None         |  AlexNet     |         -        |         -        |            -         |
-| None         |  ResNet      |         -        |         -        |            -         |
-| Random       |  LeNet       |         -        |         -        |            -         |
-| Random       |  AlexNet     |         -        |         -        |            -         |
-| Random       |  ResNet      |         -        |         -        |            -         |
-| Model-chosen |  LeNet       |         -        |         -        |            -         |
-| Model-chosen |  AlexNet     |         -        |         -        |            -         |
-| Model-chosen |  ResNet      |         -        |         -        |            -         |
-| Object-size  |  LeNet       |         -        |         -        |            -         |
-| Object-size  |  AlexNet     |         -        |         -        |            -         |
-| Object-size  |  ResNet      |         -        |         -        |            -         |
+| Curriculum   |	Model        | Convergence time | 	Test accuracy   | LS classifier  | n=1  | 2  | 5  | 	10  | 20 |
+| :------------|  :-----------|:---------------: | :--------------: | :------------: |:---: |:--:| :-:| :--: |:--:|
+| None         |  LeNet       |         -        |         -        | kNN            |  -   | -  | -  |  -   | -  |
+| None         |  AlexNet     |         -        |         -        | kNN            |  -   | -  | -  |  -   | -  |
+| None         |  ResNet      |         -        |         -        | kNN            |  -   | -  | -  |  -   | -  |
+| Random       |  LeNet       |         -        |         -        | kNN            |  -   | -  | -  |  -   | -  |
+| Random       |  AlexNet     |         -        |         -        | kNN            |  -   | -  | -  |  -   | -  |
+| Random       |  ResNet      |         -        |         -        | kNN            |  -   | -  | -  |  -   | -  |
+| Hard-example |  LeNet       |         -        |         -        | kNN            |  -   | -  | -  |  -   | -  |
+| Hard-example |  AlexNet     |         -        |         -        | kNN            |  -   | -  | -  |  -   | -  |
+| Hard-example |  ResNet      |         -        |         -        | kNN            |  -   | -  | -  |  -   | -  |
+| Start big    |  LeNet       |         -        |         -        | kNN            |  -   | -  | -  |  -   | -  |
+| Start big    |  AlexNet     |         -        |         -        | kNN            |  -   | -  | -  |  -   | -  |
+| Start big    |  ResNet      |         -        |         -        | kNN            |  -   | -  | -  |  -   | -  |
+| Start small  |  LeNet       |         -        |         -        | kNN            |  -   | -  | -  |  -   | -  | 
+| Start small  |  AlexNet     |         -        |         -        | kNN            |  -   | -  | -  |  -   | -  |
+| Start small  |  ResNet      |         -        |         -        | kNN            |  -   | -  | -  |  -   | -  |
+| Middle-out   |  LeNet       |         -        |         -        | kNN            |  -   | -  | -  |  -   | -  | 
+| Middle-out   |  AlexNet     |         -        |         -        | kNN            |  -   | -  | -  |  -   | -  |
+| Middle-out   |  ResNet      |         -        |         -        | kNN            |  -   | -  | -  |  -   | -  |
 
-_Top-1, Novel classes (low-shot)_
-
-| Curriculum   | Model       |  LS classifier  | n=1   | 2      | 5   | 	10     | 20    |
-| :------------|  :----------| :-------------: |:----: |  :---: | :-: | :----: | :---: |
-| None         |  AlexNet    | kNN             |  -    | -      | -   | -      | -     |
-| Random       |  AlexNet    | kNN             |  -    | -      | -   | -      | -     |
-| Model-chosen |  AlexNet    | kNN             |  -    | -      | -   | -      | -     |
-| Object-size  |  AlexNet    | kNN             |  -    | -      | -   | -      | -     |
 
 
 
