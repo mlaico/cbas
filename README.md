@@ -1,3 +1,32 @@
+# Results
+_Top-1, Base classes_
+
+| Curriculum   |	Model         | 	   Parameters    | Convergence time | 	  Test accuracy    | 
+| :------------|  :-----------| :--------------: | :--------------: | :------------------: |
+| None         |  LeNet       |         -        |         -        |            -         |
+| None         |  AlexNet     |         -        |         -        |            -         |
+| None         |  ResNet      |         -        |         -        |            -         |
+| Random       |  LeNet       |         -        |         -        |            -         |
+| Random       |  AlexNet     |         -        |         -        |            -         |
+| Random       |  ResNet      |         -        |         -        |            -         |
+| Model-chosen |  LeNet       |         -        |         -        |            -         |
+| Model-chosen |  AlexNet     |         -        |         -        |            -         |
+| Model-chosen |  ResNet      |         -        |         -        |            -         |
+| Object-size  |  LeNet       |         -        |         -        |            -         |
+| Object-size  |  AlexNet     |         -        |         -        |            -         |
+| Object-size  |  ResNet      |         -        |         -        |            -         |
+
+_Top-1, Novel classes (low-shot)_
+
+| Curriculum   | Model       |  LS classifier  | n=1   | 2      | 5   | 	10     | 20    |
+| :------------|  :----------| :-------------: |:----: |  :---: | :-: | :----: | :---: |
+| None         |  AlexNet    | kNN             |  -    | -      | -   | -      | -     |
+| Random       |  AlexNet    | kNN             |  -    | -      | -   | -      | -     |
+| Model-chosen |  AlexNet    | kNN             |  -    | -      | -   | -      | -     |
+| Object-size  |  AlexNet    | kNN             |  -    | -      | -   | -      | -     |
+
+
+
 # cbas
 ### 1.) Download/clone the COCO api from the <a href=https://github.com/cocodataset/cocoapi>COCO github page</a>
 * You can follow their readme or this one.  For this one, you don't have to download the COCO dataset
