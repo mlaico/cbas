@@ -2,7 +2,7 @@
                                                     Base classes                          Novel classes
 | Curriculum   |	Model        | Convergence time | 	Top-1 accuracy  | LS classifier  | n=1  | 2  | 5  | 	10  | 20 |
 | :------------|  :-----------|:---------------: | :--------------: | :------------: |:---: |:--:| :-:| :--: |:--:|
-| None         |  LeNet       |         -        |         -        | kNN            |  -   | -  | -  |  -   | -  |
+| None         |  LeNet       |   4 epochs       |       22.04      | kNN            |  -   | -  | -  |  -   | -  |
 | None         |  AlexNet     |         -        |         -        | kNN            |  -   | -  | -  |  -   | -  |
 | None         |  ResNet      |         -        |         -        | kNN            |  -   | -  | -  |  -   | -  |
 | Random       |  LeNet       |         -        |         -        | kNN            |  -   | -  | -  |  -   | -  |
