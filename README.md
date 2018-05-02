@@ -1,7 +1,6 @@
 # Results
-_Top-1, Base classes_
-
-| Curriculum   |	Model        | Convergence time | 	Test accuracy   | LS classifier  | n=1  | 2  | 5  | 	10  | 20 |
+                                                    Base classes                          Novel classes
+| Curriculum   |	Model        | Convergence time | 	Top-1 accuracy  | LS classifier  | n=1  | 2  | 5  | 	10  | 20 |
 | :------------|  :-----------|:---------------: | :--------------: | :------------: |:---: |:--:| :-:| :--: |:--:|
 | None         |  LeNet       |         -        |         -        | kNN            |  -   | -  | -  |  -   | -  |
 | None         |  AlexNet     |         -        |         -        | kNN            |  -   | -  | -  |  -   | -  |
