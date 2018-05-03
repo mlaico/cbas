@@ -1,26 +1,25 @@
 # Results
-                                                    Base classes                          Novel classes
-| Curriculum   |	Model        | Convergence time | 	Top-1 accuracy  | LS classifier  | n=1  | 2  | 5  | 	10  | 20 |
-| :------------|  :-----------|:---------------: | :--------------: | :------------: |:---: |:--:| :-:| :--: |:--:|
-| None         |  LeNet       |   4 epochs       |       22.04      | kNN            |  -   | -  | -  |  -   | -  |
-| None         |  AlexNet     |   8 epochs       |       25.66      | kNN            |  -   | -  | -  |  -   | -  |
-| None         |  ResNet      |         -        |         -        | kNN            |  -   | -  | -  |  -   | -  |
-| Random       |  LeNet       |         -        |         -        | kNN            |  -   | -  | -  |  -   | -  |
-| Random       |  AlexNet     |         -        |         -        | kNN            |  -   | -  | -  |  -   | -  |
-| Random       |  ResNet      |         -        |         -        | kNN            |  -   | -  | -  |  -   | -  |
-| Hard-example |  LeNet       |         -        |         -        | kNN            |  -   | -  | -  |  -   | -  |
-| Hard-example |  AlexNet     |         -        |         -        | kNN            |  -   | -  | -  |  -   | -  |
-| Hard-example |  ResNet      |         -        |         -        | kNN            |  -   | -  | -  |  -   | -  |
-| Start big    |  LeNet       |         -        |         -        | kNN            |  -   | -  | -  |  -   | -  |
-| Start big    |  AlexNet     |         -        |         -        | kNN            |  -   | -  | -  |  -   | -  |
-| Start big    |  ResNet      |         -        |         -        | kNN            |  -   | -  | -  |  -   | -  |
-| Start small  |  LeNet       |         -        |         -        | kNN            |  -   | -  | -  |  -   | -  | 
-| Start small  |  AlexNet     |         -        |         -        | kNN            |  -   | -  | -  |  -   | -  |
-| Start small  |  ResNet      |         -        |         -        | kNN            |  -   | -  | -  |  -   | -  |
-| Middle-out   |  LeNet       |         -        |         -        | kNN            |  -   | -  | -  |  -   | -  | 
-| Middle-out   |  AlexNet     |         -        |         -        | kNN            |  -   | -  | -  |  -   | -  |
-| Middle-out   |  ResNet      |         -        |         -        | kNN            |  -   | -  | -  |  -   | -  |
-
+                                          Base classes            Novel classes
+| Curriculum   |	Model     | Conv (eps) | 	Top-1 | Top-5| n=1  | 2  | 5  | 	10  | 20 |
+| :------------|  :---------|:---------: | :----: | :--: |:---: |:--:| :-:| :--: |:--:|
+| None         |  LeNet     |       -    |  26.65 |  -   |  -   | -  | -  |  -   | -  |
+| None         |  AlexNet   |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
+| None         |  ResNet    |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
+| Random       |  LeNet     |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
+| Random       |  AlexNet   |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
+| Random       |  ResNet    |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
+| Hard-example |  LeNet     |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
+| Hard-example |  AlexNet   |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
+| Hard-example |  ResNet    |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
+| Start big    |  LeNet     |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
+| Start big    |  AlexNet   |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
+| Start big    |  ResNet    |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
+| Start small  |  LeNet     |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
+| Start small  |  AlexNet   |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
+| Start small  |  ResNet    |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
+| Middle-out   |  LeNet     |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
+| Middle-out   |  AlexNet   |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
+| Middle-out   |  ResNet    |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
 
 
 
