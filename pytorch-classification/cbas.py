@@ -1,6 +1,5 @@
 '''
 Training script for CBAS-34
-Copyright (c) Wei YANG, 2017
 '''
 from __future__ import print_function
 
@@ -110,12 +109,12 @@ def main():
         transforms.RandomCrop(32, padding=4),
         transforms.RandomHorizontalFlip(),
         transforms.ToTensor(),
-        transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225)),
+        transforms.Normalize((0.4587, 0.4291, 0.3874), (0.1974, 0.1937, 0.1941)),
     ])
 
     transform_test = transforms.Compose([
         transforms.ToTensor(),
-        transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225)),
+        transforms.Normalize((0.4587, 0.4291, 0.3874), (0.1974, 0.1937, 0.1941)),
     ])
     if args.dataset == 'cbas34':
         dataloader = datasets.ImageFolder
@@ -161,6 +160,7 @@ def main():
                     num_classes=num_classes,
                     depth=args.depth,
                 )
+
     else:
         model = models.__dict__[args.arch](num_classes=num_classes)
 
