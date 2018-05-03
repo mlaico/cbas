@@ -2,7 +2,7 @@
                                           Base classes            Novel classes
 | Curriculum   |	Model     | Conv (eps) | 	Top-1 | Top-5| n=1  | 2  | 5  | 	10  | 20 |
 | :------------|  :---------|:---------: | :----: | :--: |:---: |:--:| :-:| :--: |:--:|
-| None         |  LeNet     |       -    |  26.65 |  -   |  -   | -  | -  |  -   | -  |
+| None         |  LeNet     |     25     |  27.04 | 61.47|  -   | -  | -  |  -   | -  |
 | None         |  AlexNet   |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
 | None         |  ResNet    |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
 | Random       |  LeNet     |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
