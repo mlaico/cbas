@@ -124,10 +124,10 @@ def main():
         num_classes = 34
 
 
-    trainset = dataloader(root='../Data/coco/images/{}_{}'.format(args.dataset,'train'), transform=transform_train)
+    trainset = dataloader(root='../../images/{}_{}'.format(args.dataset,'train'), transform=transform_train)
     trainloader = data.DataLoader(trainset, batch_size=args.train_batch, shuffle=True, num_workers=args.workers)
 
-    testset = dataloader(root='../Data/coco/images/{}_{}'.format(args.dataset,'val'), transform=transform_test)
+    testset = dataloader(root='../../images/{}_{}'.format(args.dataset,'val'), transform=transform_test)
     testloader = data.DataLoader(testset, batch_size=args.test_batch, shuffle=False, num_workers=args.workers)
 
     # Model
