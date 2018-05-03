@@ -3,7 +3,7 @@
 | Curriculum   |	Model        | Convergence time | 	Top-1 accuracy  | LS classifier  | n=1  | 2  | 5  | 	10  | 20 |
 | :------------|  :-----------|:---------------: | :--------------: | :------------: |:---: |:--:| :-:| :--: |:--:|
 | None         |  LeNet       |   4 epochs       |       22.04      | kNN            |  -   | -  | -  |  -   | -  |
-| None         |  AlexNet     |         -        |         -        | kNN            |  -   | -  | -  |  -   | -  |
+| None         |  AlexNet     |   8 epochs       |       25.66      | kNN            |  -   | -  | -  |  -   | -  |
 | None         |  ResNet      |         -        |         -        | kNN            |  -   | -  | -  |  -   | -  |
 | Random       |  LeNet       |         -        |         -        | kNN            |  -   | -  | -  |  -   | -  |
 | Random       |  AlexNet     |         -        |         -        | kNN            |  -   | -  | -  |  -   | -  |
