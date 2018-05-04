@@ -140,47 +140,70 @@ def main():
     image_pixels = float(SIZE*SIZE)
     pixel_counts = [0.0,16.0,64.0,128.0,256.0,1024.0]
     BINS = []
-    if args.curr == 'start-big':
-        for i in range(len(pixel_counts)-2, -1, -1): # reverse order
-            BINS.append( [ (pixel_counts[i]/image_pixels), (pixel_counts[-1]/image_pixels) ] )
-    elif args.curr == 'start-small':
-        for i in range(0,len(pixel_counts)-1):
-            BINS.append( [ (pixel_counts[0]/image_pixels), (pixel_counts[i+1]/image_pixels) ] ) # cumulative
-    elif args.curr == 'middle-out':
-        BINS.append([ (pixel_counts[3]/image_pixels), (pixel_counts[4]/image_pixels) ])
-        BINS.append([ (pixel_counts[2]/image_pixels), (pixel_counts[4]/image_pixels) ])
-        BINS.append([ (pixel_counts[2]/image_pixels), (pixel_counts[5]/image_pixels) ])
-        BINS.append([ (pixel_counts[1]/image_pixels), (pixel_counts[5]/image_pixels) ])
-        BINS.append([ (pixel_counts[0]/image_pixels), (pixel_counts[5]/image_pixels) ])
-    else:
-        BINS = [[0.0,1.0]]
-
-    if not args.curr == 'none':
-        print('Creating a curriculum for the following size bounds: {}'.format(BINS))
-
-    all_loaders = []
-    for b in BINS:
-        imageLoaders = {}
+    if args.curr == "random":
+        print('Creating a randomized curriculum')
+        imsetIds = {}
+        interval_size = {}
+        interval_size['train'] = 10200
+        interval_size['val'] = 1088
 
         for dataType in ['train','val']:
-            idToIdx = {}
-            datasetIds = []
-            for i,img in enumerate(imageSets[dataType].imgs):
-                img_id_str = img[0].split('/')[-1].split('.')[0]
-                idToIdx[img_id_str] = i
-                datasetIds.append(img_id_str)
+                imsetIds[dataType] = []
+                for i,_ in enumerate(imageSets[dataType].imgs):
+                    imsetIds[dataType].append(i)
+                random.shuffle(imsetIds[dataType])
 
-        # Get list of ids in size range and intersect with list of ids in dataset
-            imgIds_in_size_range = cbas_api.getImgIds(imgIds=cbas_api.getImgIds(), szBounds=b)
-            imgIds_szRange = [str(i) for i in imgIds_in_size_range] # change list elements to strings
+        all_loaders = []
+        for b in range(1,6):
+            imageLoaders = {}
 
-            imgIds_for_sampling = list(set(datasetIds) & set(imgIds_szRange))
-            samplerIndices = [idToIdx[i] for i in imgIds_for_sampling]
+            for dataType in ['train','val']:
+                samplerIndices = imsetIds[dataType][0:b*interval_size[dataType]]
+                curSplit = torch.utils.data.sampler.SubsetRandomSampler(samplerIndices)
+                imageLoaders[dataType] = torch.utils.data.DataLoader(imageSets[dataType],
+                    batch_size=args.train_batch, shuffle=False, sampler=curSplit, num_workers=args.workers)
+            all_loaders.append(imageLoaders)
+    else:
+        if args.curr == 'start-big':
+            for i in range(len(pixel_counts)-2, -1, -1): # reverse order
+                BINS.append( [ (pixel_counts[i]/image_pixels), (pixel_counts[-1]/image_pixels) ] )
+        elif args.curr == 'start-small':
+            for i in range(0,len(pixel_counts)-1):
+                BINS.append( [ (pixel_counts[0]/image_pixels), (pixel_counts[i+1]/image_pixels) ] ) # cumulative
+        elif args.curr == 'middle-out':
+            BINS.append([ (pixel_counts[3]/image_pixels), (pixel_counts[4]/image_pixels) ])
+            BINS.append([ (pixel_counts[2]/image_pixels), (pixel_counts[4]/image_pixels) ])
+            BINS.append([ (pixel_counts[2]/image_pixels), (pixel_counts[5]/image_pixels) ])
+            BINS.append([ (pixel_counts[1]/image_pixels), (pixel_counts[5]/image_pixels) ])
+        else:
+            BINS = [[0.0,1.0]]
 
-            curSplit = torch.utils.data.sampler.SubsetRandomSampler(samplerIndices)
-            imageLoaders[dataType] = torch.utils.data.DataLoader(imageSets[dataType],
-                batch_size=args.train_batch, shuffle=False, sampler=curSplit, num_workers=args.workers)
-        all_loaders.append(imageLoaders)
+        if not args.curr == 'none':
+            print('Creating a curriculum for the following size bounds: {}'.format(BINS))
+
+        all_loaders = []
+        for b in BINS:
+            imageLoaders = {}
+
+            for dataType in ['train','val']:
+                idToIdx = {}
+                datasetIds = []
+                for i,img in enumerate(imageSets[dataType].imgs):
+                    img_id_str = img[0].split('/')[-1].split('.')[0]
+                    idToIdx[img_id_str] = i
+                    datasetIds.append(img_id_str)
+
+            # Get list of ids in size range and intersect with list of ids in dataset
+                imgIds_in_size_range = cbas_api.getImgIds(imgIds=cbas_api.getImgIds(), szBounds=b)
+                imgIds_szRange = [str(i) for i in imgIds_in_size_range] # change list elements to strings
+
+                imgIds_for_sampling = list(set(datasetIds) & set(imgIds_szRange))
+                samplerIndices = [idToIdx[i] for i in imgIds_for_sampling]
+
+                curSplit = torch.utils.data.sampler.SubsetRandomSampler(samplerIndices)
+                imageLoaders[dataType] = torch.utils.data.DataLoader(imageSets[dataType],
+                    batch_size=args.train_batch, shuffle=False, sampler=curSplit, num_workers=args.workers)
+            all_loaders.append(imageLoaders)
 
     # < End curriculum code >
 
@@ -256,7 +279,10 @@ def main():
     for i,loader in enumerate(all_loaders):
 
         if not args.curr == 'none':
-            print('\nLoading curriculum {}: {}'.format(i+1,BINS[i]))
+            if args.curr == 'random':
+                print('\nloading random curriculum')
+            else:
+                print('\nLoading curriculum {}: {}'.format(i+1,BINS[i]))
 
         # Train and val
         for epoch in range(start_epoch, args.epochs):
