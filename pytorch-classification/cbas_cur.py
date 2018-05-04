@@ -4,7 +4,8 @@ Training script for CBAS-34
 from __future__ import print_function
 
 import sys
-sys.path.append('../PythonAPI')
+sys.path.append('..')
+sys.path.append('../../PythonAPI')
 
 import argparse
 import os
@@ -35,6 +36,7 @@ parser = argparse.ArgumentParser(description='PyTorch CBAS-34 Training')
 parser.add_argument('-d', '--dataset', default='cbas34', type=str)
 parser.add_argument('-j', '--workers', default=2, type=int, metavar='N',
                     help='number of data loading workers (default: 4)')
+parser.add_argument('--curr', default='none', type=str)
 # Optimization options
 parser.add_argument('--epochs', default=300, type=int, metavar='N',
                     help='number of total epochs to run')
@@ -110,8 +112,6 @@ def main():
     # Data
     print('==> Preparing dataset %s' % args.dataset)
     transform_train = transforms.Compose([
-        transforms.RandomCrop(32, padding=4),
-        transforms.RandomHorizontalFlip(),
         transforms.ToTensor(),
         transforms.Normalize((0.4587, 0.4291, 0.3874), (0.1974, 0.1937, 0.1941)),
     ])
@@ -127,21 +127,36 @@ def main():
         dataloader = datasets.ImageFolder
         num_classes = 34
 
-    # Curriculum code
+    # < Curriculum code start >
 
-    cbas_api = CBAS('../annotations/cbas80.json') # cbas splits coco train2017 into train and val
+    cbas_api = CBAS('../cbas80.json') # cbas splits coco train2017 into train and val
 
     imageSets = {}
-    imageSets['train'] = torchvision.datasets.ImageFolder(root='../images/cbas_train', transform=transform)
-    imageSets['val'] = torchvision.datasets.ImageFolder(root='../images/cbas_val', transform=transform)
+    imageSets['train'] = datasets.ImageFolder(root='../../images/cbas34_train', transform=transform_train)
+    imageSets['val'] = datasets.ImageFolder(root='../../images/cbas34_val', transform=transform_test)
 
     # Compute CBAS curriculum intervals
     SIZE=32
     image_pixels = float(SIZE*SIZE)
     pixel_counts = [0.0,16.0,64.0,128.0,256.0,1024.0]
     BINS = []
-    for i in range(0,len(pixel_counts)-1):
-        BINS.append( [ (pixel_counts[0]/image_pixels), (pixel_counts[i+1]/image_pixels) ] ) # cumulative
+    if args.curr == 'start-big':
+        for i in range(len(pixel_counts)-2, -1, -1): # reverse order
+            BINS.append( [ (pixel_counts[i]/image_pixels), (pixel_counts[-1]/image_pixels) ] )
+    elif args.curr == 'start-small':
+        for i in range(0,len(pixel_counts)-1):
+            BINS.append( [ (pixel_counts[0]/image_pixels), (pixel_counts[i+1]/image_pixels) ] ) # cumulative
+    elif args.curr == 'middle-out':
+        BINS.append([ (pixel_counts[3]/image_pixels), (pixel_counts[4]/image_pixels) ])
+        BINS.append([ (pixel_counts[2]/image_pixels), (pixel_counts[4]/image_pixels) ])
+        BINS.append([ (pixel_counts[2]/image_pixels), (pixel_counts[5]/image_pixels) ])
+        BINS.append([ (pixel_counts[1]/image_pixels), (pixel_counts[5]/image_pixels) ])
+        BINS.append([ (pixel_counts[0]/image_pixels), (pixel_counts[5]/image_pixels) ])
+    else:
+        BINS = [[0.0,1.0]]
+
+    if not args.curr == 'none':
+        print('Creating a curriculum for the following size bounds: {}'.format(BINS))
 
     all_loaders = []
     for b in BINS:
@@ -150,26 +165,24 @@ def main():
         for dataType in ['train','val']:
             idToIdx = {}
             datasetIds = []
-            for i,img in enumerate(imageSets[dataType].imgs): # here's were we get image ids from the torchvision dataset
-                img_id_str = img[0].split('/')[4].split('.')[0]
+            for i,img in enumerate(imageSets[dataType].imgs):
+                img_id_str = img[0].split('/')[-1].split('.')[0]
                 idToIdx[img_id_str] = i
                 datasetIds.append(img_id_str)
 
-                # Get list of ids in size range and intersect with list of ids in dataset
-                imgIds_in_size_range = coco.getImgIds(imgIds=coco.getImgIds(), szBounds=b)
-                imgIds_szRange = [str(i) for i in imgIds_in_size_range] # change list elements to strings
+        # Get list of ids in size range and intersect with list of ids in dataset
+            imgIds_in_size_range = cbas_api.getImgIds(imgIds=cbas_api.getImgIds(), szBounds=b)
+            imgIds_szRange = [str(i) for i in imgIds_in_size_range] # change list elements to strings
 
-                imgIds_for_sampling = list(set(datasetIds) & set(imgIds_szRange))
-                samplerIndices = [idToIdx[i] for i in imgIds_for_sampling]
+            imgIds_for_sampling = list(set(datasetIds) & set(imgIds_szRange))
+            samplerIndices = [idToIdx[i] for i in imgIds_for_sampling]
 
-                curSplit = torch.utils.data.sampler.SubsetRandomSampler(samplerIndices)
+            curSplit = torch.utils.data.sampler.SubsetRandomSampler(samplerIndices)
+            imageLoaders[dataType] = torch.utils.data.DataLoader(imageSets[dataType],
+                batch_size=args.train_batch, shuffle=False, sampler=curSplit, num_workers=args.workers)
+        all_loaders.append(imageLoaders)
 
-                # shuffle must be 'False' since we're specifying a random sampler "curSplit"
-                imageLoaders[dataType] = torch.utils.data.DataLoader(imageSets[dataType],
-                    batch_size=args.train_batch, shuffle=False, sampler=curSplit, num_workers=args.workers)
-
-
-    all_loaders.append(imageLoaders)
+    # < End curriculum code >
 
     # Model
     print("==> creating model '{}'".format(args.arch))
@@ -242,13 +255,16 @@ def main():
     # loop over curriculum batch loaders
     for i,loader in enumerate(all_loaders):
 
-        print('Loading curriculum {}: {}'.format(i+1,BINS[i]))
+        if not args.curr == 'none':
+            print('\nLoading curriculum {}: {}'.format(i+1,BINS[i]))
 
         # Train and val
         for epoch in range(start_epoch, args.epochs):
             adjust_learning_rate(optimizer, epoch)
 
             print('\nEpoch: [%d | %d] LR: %f' % (epoch + 1, args.epochs, state['lr']))
+
+            print(len(loader['train']))
 
             train_loss, train_acc = train(loader['train'], model, criterion, optimizer, epoch, use_cuda)
             test_loss, test_acc = test(loader['val'], model, criterion, epoch, use_cuda)
