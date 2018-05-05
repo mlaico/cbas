@@ -59,14 +59,13 @@ def size_train(training_set, model, loss_fn, optimizer, deviations):
                       (i + 1, running_loss / 2000))
                 running_loss = 0.0
 
-    cbas_api = CBAS('annotations/cbas80.json')  # cbas splits coco train2017 into train and val
+    cbas_api = CBAS('cbas80.json')  # cbas splits coco train2017 into train and val
     training_ids = []
     ids = cbas_api.imIds.tolist()
     sizes = cbas_api.sizes
 
-    for _, img in enumerate(training_set.imgs):  # here's were we get image ids from the torchvision dataset
-        print(img)
-        training_ids += img[0].split('/')[4].split('.')[0]
+    for img in training_set.imgs:  # here's were we get image ids from the torchvision dataset
+        training_ids += img[0].split('/')[-1].split('.')[0]
     cbas_ids = [i for i in range(len(ids)) if ids[i] in training_ids]
     ratios = sizes[cbas_ids]
     num_samples = ratios.shape[0]

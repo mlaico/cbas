@@ -59,7 +59,7 @@ def real_time(training_set, model, loss_fn, optimizer, deviations):
     deviations: a sequence of standard deviations scalars to be applied to the sampling distribution's
     mean to determine the probability of sampling and image with a given loss value. If set to [0...0],
     the probability of sampling each image (based on loss value) will be determined by the normal
-    distribution's pdf. If deviation = -1, probability will be dictated by a normal with shifted mean
+    distribution's pdf. If deviation = -1, probability will be dictated by a normal dist with shifted mean
     mean(loss) -1*std(loss). This in effect allows us to shift the difficulty of training images over
     each epoch. Images are sampled with replacement, so we can shift the focus from easy to hard. For
     example: [-1, 0, 1] samples from a normal distribution centered at mean(loss) -1*std(loss),
