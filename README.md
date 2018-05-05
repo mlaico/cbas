@@ -1,25 +1,59 @@
 # Results
+
+## Top-1:
                                           Base classes            Novel classes
-| Curriculum   |	Model     | Conv (eps) | 	Top-1 | Top-5| n=1  | 2  | 5  | 	10  | 20 |
-| :------------|  :---------|:---------: | :----: | :--: |:---: |:--:| :-:| :--: |:--:|
-| None         |  LeNet     |     25     |  27.04 | 61.47|  -   | -  | -  |  -   | -  |
-| None         |  AlexNet   |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
-| None         |  ResNet    |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
-| Random       |  LeNet     |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
-| Random       |  AlexNet   |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
-| Random       |  ResNet    |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
-| Hard-example |  LeNet     |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
-| Hard-example |  AlexNet   |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
-| Hard-example |  ResNet    |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
-| Start big    |  LeNet     |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
-| Start big    |  AlexNet   |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
-| Start big    |  ResNet    |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
-| Start small  |  LeNet     |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
-| Start small  |  AlexNet   |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
-| Start small  |  ResNet    |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
-| Middle-out   |  LeNet     |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
-| Middle-out   |  AlexNet   |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
-| Middle-out   |  ResNet    |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
+| Curriculum   |	Model     | Conv (eps) | n=1  | 2  | 5  | 	10  | 20 |
+| :------------|  :---------|:---------: | :---: |:--:| :-:| :--: |:--:|
+| None         |  LeNet     |     25     |   -   | -  | -  |  -   | -  |
+| None         |  DileNet   |     ??     |  5.22 |  7.03 |  8.61 |  9.98 | 12.10 |
+| None         |  AlexNet   |     ??     |  9.08 |  6.83 |  9.40 | 11.34 | 13.09 | 
+| None         |  ResNet    |      -     |   -   | -  | -  |  -   | -  |
+| Random       |  LeNet     |      -     |   -   | -  | -  |  -   | -  |
+| Random       |  AlexNet   |      -     |   -   | -  | -  |  -   | -  |
+| Random       |  ResNet    |      -     |   -   | -  | -  |  -   | -  |
+| Hard-example |  LeNet     |      -     |   -   | -  | -  |  -   | -  |
+| Hard-example |  AlexNet   |      -     |   -   | -  | -  |  -   | -  |
+| Hard-example |  ResNet    |      -     |   -   | -  | -  |  -   | -  |
+| Start big    |  LeNet     |      -     |   -   | -  | -  |  -   | -  |
+| Start big    |  DileNet   |     ??     |  3.84 |  3.40 |  3.71 |  4.43 | 5.92 | 
+| Start big    |  AlexNet   |      -     |   -   | -  | -  |  -   | -  |
+| Start big    |  ResNet    |      -     |   -   | -  | -  |  -   | -  |
+| Start small  |  LeNet     |      -     |   -   | -  | -  |  -   | -  |
+| Start Small  |  DileNet   |     ??     |  3.42 |  4.09 |  3.94 |  5.64 |  6.40 |
+| Start small  |  AlexNet   |      -     |   -   | -  | -  |  -   | -  |
+| Start small  |  ResNet    |      -     |   -   | -  | -  |  -   | -  |
+| Middle-out   |  LeNet     |      -     |   -   | -  | -  |  -   | -  |
+| Middle-out   |  DileNet   |     ??     |  4.69 |  4.50 |  6.05 |  4.63 | 7.20 | 
+| Middle-out   |  AlexNet   |      -     |   -   | -  | -  |  -   | -  |
+| Middle-out   |  ResNet    |      -     |   -   | -  | -  |  -   | -  |
+
+
+## Top-5:
+                                          Base classes            Novel classes
+| Curriculum   |	Model     | Conv (eps) | n=1  | 2  | 5  | 	10  | 20 |
+| :------------|  :---------|:---------: | :---: |:--:| :-:| :--: |:--:|
+| None         |  LeNet     |     25     |   -   | -  | -  |  -   | -  |
+| None         |  Dilenet   |     ??     | 20.10 | 23.99 | 27.02 | 27.89 | 31.78 |
+| None         |  AlexNet   |     ??     | 28.04 | 27.13 | 30.92 | 33.04 | 33.27 |
+| None         |  ResNet    |      -     |   -   | -  | -  |  -   | -  |
+| Random       |  LeNet     |      -     |   -   | -  | -  |  -   | -  |
+| Random       |  AlexNet   |      -     |   -   | -  | -  |  -   | -  |
+| Random       |  ResNet    |      -     |   -   | -  | -  |  -   | -  |
+| Hard-example |  LeNet     |      -     |   -   | -  | -  |  -   | -  |
+| Hard-example |  AlexNet   |      -     |   -   | -  | -  |  -   | -  |
+| Hard-example |  ResNet    |      -     |   -   | -  | -  |  -   | -  |
+| Start big    |  LeNet     |      -     |   -   | -  | -  |  -   | -  |
+| Start Big    |  DileNet   |     ??     | 16.12 | 17.21 | 19.77 | 19.45| 20.36 | 
+| Start big    |  AlexNet   |      -     |   -   | -  | -  |  -   | -  |
+| Start big    |  ResNet    |      -     |   -   | -  | -  |  -   | -  |
+| Start small  |  LeNet     |      -     |   -   | -  | -  |  -   | -  |
+| Start Small  |  DileNet   |     ??     | 16.49 | 19.69 | 19.50 | 20.65 | 22.79 | 
+| Start small  |  AlexNet   |      -     |   -   | -  | -  |  -   | -  |
+| Start small  |  ResNet    |      -     |   -   | -  | -  |  -   | -  |
+| Middle-out   |  LeNet     |      -     |   -   | -  | -  |  -   | -  |
+| Middle-out   |  DileNet   |     ??     | 19.36 | 17.15 | 21.43 | 18.93 | 21.51 | 
+| Middle-out   |  AlexNet   |      -     |   -   | -  | -  |  -   | -  |
+| Middle-out   |  ResNet    |      -     |   -   | -  | -  |  -   | -  |
 
 
 
