@@ -15,16 +15,17 @@
 | Hard-example |  AlexNet   |      -     |   -   | -  | -  |  -   | -  |
 | Hard-example |  ResNet    |      -     |   -   | -  | -  |  -   | -  |
 | Start big    |  LeNet     |      -     |   -   | -  | -  |  -   | -  |
+| Start big    |  DileNet   |     ??     |  3.84 |  3.40 |  3.71 |  4.43 | 5.92 | 
 | Start big    |  AlexNet   |      -     |   -   | -  | -  |  -   | -  |
 | Start big    |  ResNet    |      -     |   -   | -  | -  |  -   | -  |
 | Start small  |  LeNet     |      -     |   -   | -  | -  |  -   | -  |
-| Start Small  |  DileNet   |     ??     |  3.42 |  4.09 |  3.94 |  5.64 | 
+| Start Small  |  DileNet   |     ??     |  3.42 |  4.09 |  3.94 |  5.64 |  6.40 |
 | Start small  |  AlexNet   |      -     |   -   | -  | -  |  -   | -  |
 | Start small  |  ResNet    |      -     |   -   | -  | -  |  -   | -  |
 | Middle-out   |  LeNet     |      -     |   -   | -  | -  |  -   | -  |
+| Middle-out   |  DileNet   |     ??     |  4.69 |  4.50 |  6.05 |  4.63 | 7.20 | 
 | Middle-out   |  AlexNet   |      -     |   -   | -  | -  |  -   | -  |
 | Middle-out   |  ResNet    |      -     |   -   | -  | -  |  -   | -  |
-
 
 
 ## Top-5:
@@ -42,13 +43,15 @@
 | Hard-example |  AlexNet   |      -     |   -   | -  | -  |  -   | -  |
 | Hard-example |  ResNet    |      -     |   -   | -  | -  |  -   | -  |
 | Start big    |  LeNet     |      -     |   -   | -  | -  |  -   | -  |
+| Start Big    |  DileNet   |     ??     | 16.12 | 17.21 | 19.77 | 19.45| 20.36 | 
 | Start big    |  AlexNet   |      -     |   -   | -  | -  |  -   | -  |
 | Start big    |  ResNet    |      -     |   -   | -  | -  |  -   | -  |
 | Start small  |  LeNet     |      -     |   -   | -  | -  |  -   | -  |
-| Start Small  |  DileNet   |     ??     |  16.49 | 19.69 | 19.50 | 20.65 | 22.79 | 
+| Start Small  |  DileNet   |     ??     | 16.49 | 19.69 | 19.50 | 20.65 | 22.79 | 
 | Start small  |  AlexNet   |      -     |   -   | -  | -  |  -   | -  |
 | Start small  |  ResNet    |      -     |   -   | -  | -  |  -   | -  |
 | Middle-out   |  LeNet     |      -     |   -   | -  | -  |  -   | -  |
+| Middle-out   |  DileNet   |     ??     | 19.36 | 17.15 | 21.43 | 18.93 | 21.51 | 
 | Middle-out   |  AlexNet   |      -     |   -   | -  | -  |  -   | -  |
 | Middle-out   |  ResNet    |      -     |   -   | -  | -  |  -   | -  |
 
