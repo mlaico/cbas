@@ -35,6 +35,18 @@ from torch.autograd import Variable
 import torch.nn as nn
 import torch.nn.functional as F
 import torchvision.models as models
+import torch._utils
+
+try:
+    torch._utils._rebuild_tensor_v2
+except AttributeError:
+    def _rebuild_tensor_v2(storage, storage_offset, size, stride, requires_grad, backward_hooks):
+        tensor = torch._utils._rebuild_tensor(storage, storage_offset, size, stride)
+        tensor.requires_grad = requires_grad
+        tensor._backward_hooks = backward_hooks
+        return tensor
+    torch._utils._rebuild_tensor_v2 = _rebuild_tensor_v2
+
 
 IMGS_BASE = '../../images/'
 
@@ -304,6 +316,7 @@ def load_model(path, model=None):
         checkpoint = torch.load(path, map_location=lambda storage, loc: storage)
         state_dict = checkpoint['state_dict']
         trained_on_gpu = list(state_dict.keys())[0].startswith('module.')
+        print(state_dict.keys())
         if trained_on_gpu:
             new_state_dict = OrderedDict()
             for k, v in state_dict.items():
@@ -311,7 +324,6 @@ def load_model(path, model=None):
                 new_state_dict[name] = v
             state_dict = new_state_dict
         else:
-            checkpoint = torch.load(path)
             state_dict = checkpoint['state_dict']
 
     #     print(checkpoint.keys())
@@ -399,14 +411,17 @@ def few_shot_fit_and_eval(
 
 
 if __name__ == '__main__':
-
     models = [
+        ## Done:
         # ('dilenet', 'None', '/home/gbiamby/school/coco/cbas/models/dilent_cbas34_no-curr.pth.tar')
-        ('alexnet', 'None', '/home/gbiamby/school/coco/cbas/pytorch-classification/checkpoints/cbas34/alexnet/alexnet_300epochs_no-curr.pth.tar')
+        # ('alexnet', 'None', '/home/gbiamby/school/coco/cbas/pytorch-classification/checkpoints/cbas34/alexnet/alexnet_300epochs_no-curr.pth.tar')
+
+        ## Not Done:
+        ('dilenet', 'Start Small', '/home/gbiamby/school/coco/cbas/pytorch-classification/checkpoints/cbas34/dilenet/start-small/model_best.pth.tar')
+        , ('dilenet', 'Start Big', '/home/gbiamby/school/coco/cbas/pytorch-classification/checkpoints/cbas34/dilenet/start-big/model_best.pth.tar')
+        , ('dilenet', 'Middle-out', '/home/gbiamby/school/coco/cbas/pytorch-classification/checkpoints/cbas34/dilenet/middle-out/model_best.pth.tar')
     ]
+
     for model_info in models:
         few_shot_fit_and_eval(model_info)
-
-
-
 
