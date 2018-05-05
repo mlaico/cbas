@@ -1,25 +1,50 @@
 # Results
+
+## Top-1:
                                           Base classes            Novel classes
-| Curriculum   |	Model     | Conv (eps) | 	Top-1 | Top-5| n=1  | 2  | 5  | 	10  | 20 |
-| :------------|  :---------|:---------: | :----: | :--: |:---: |:--:| :-:| :--: |:--:|
-| None         |  LeNet     |     25     |  27.04 | 61.47|  -   | -  | -  |  -   | -  |
-| None         |  AlexNet   |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
-| None         |  ResNet    |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
-| Random       |  LeNet     |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
-| Random       |  AlexNet   |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
-| Random       |  ResNet    |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
-| Hard-example |  LeNet     |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
-| Hard-example |  AlexNet   |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
-| Hard-example |  ResNet    |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
-| Start big    |  LeNet     |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
-| Start big    |  AlexNet   |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
-| Start big    |  ResNet    |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
-| Start small  |  LeNet     |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
-| Start small  |  AlexNet   |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
-| Start small  |  ResNet    |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
-| Middle-out   |  LeNet     |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
-| Middle-out   |  AlexNet   |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
-| Middle-out   |  ResNet    |      -     |   -    |  -   |  -   | -  | -  |  -   | -  |
+| Curriculum   |	Model     | Conv (eps) | n=1  | 2  | 5  | 	10  | 20 |
+| :------------|  :---------|:---------: | :---: |:--:| :-:| :--: |:--:|
+| None         |  LeNet     |     25     |   -   | -  | -  |  -   | -  |
+| None         |  AlexNet   |      -     |   -   | -  | -  |  -   | -  |
+| None         |  ResNet    |      -     |   -   | -  | -  |  -   | -  |
+| Random       |  LeNet     |      -     |   -   | -  | -  |  -   | -  |
+| Random       |  AlexNet   |      -     |   -   | -  | -  |  -   | -  |
+| Random       |  ResNet    |      -     |   -   | -  | -  |  -   | -  |
+| Hard-example |  LeNet     |      -     |   -   | -  | -  |  -   | -  |
+| Hard-example |  AlexNet   |      -     |   -   | -  | -  |  -   | -  |
+| Hard-example |  ResNet    |      -     |   -   | -  | -  |  -   | -  |
+| Start big    |  LeNet     |      -     |   -   | -  | -  |  -   | -  |
+| Start big    |  AlexNet   |      -     |   -   | -  | -  |  -   | -  |
+| Start big    |  ResNet    |      -     |   -   | -  | -  |  -   | -  |
+| Start small  |  LeNet     |      -     |   -   | -  | -  |  -   | -  |
+| Start small  |  AlexNet   |      -     |   -   | -  | -  |  -   | -  |
+| Start small  |  ResNet    |      -     |   -   | -  | -  |  -   | -  |
+| Middle-out   |  LeNet     |      -     |   -   | -  | -  |  -   | -  |
+| Middle-out   |  AlexNet   |      -     |   -   | -  | -  |  -   | -  |
+| Middle-out   |  ResNet    |      -     |   -   | -  | -  |  -   | -  |
+
+## Top-5:
+                                          Base classes            Novel classes
+| Curriculum   |	Model     | Conv (eps) | n=1  | 2  | 5  | 	10  | 20 |
+| :------------|  :---------|:---------: | :---: |:--:| :-:| :--: |:--:|
+| None         |  LeNet     |     25     |   -   | -  | -  |  -   | -  |
+| None         |  AlexNet   |      -     |   -   | -  | -  |  -   | -  |
+| None         |  ResNet    |      -     |   -   | -  | -  |  -   | -  |
+| Random       |  LeNet     |      -     |   -   | -  | -  |  -   | -  |
+| Random       |  AlexNet   |      -     |   -   | -  | -  |  -   | -  |
+| Random       |  ResNet    |      -     |   -   | -  | -  |  -   | -  |
+| Hard-example |  LeNet     |      -     |   -   | -  | -  |  -   | -  |
+| Hard-example |  AlexNet   |      -     |   -   | -  | -  |  -   | -  |
+| Hard-example |  ResNet    |      -     |   -   | -  | -  |  -   | -  |
+| Start big    |  LeNet     |      -     |   -   | -  | -  |  -   | -  |
+| Start big    |  AlexNet   |      -     |   -   | -  | -  |  -   | -  |
+| Start big    |  ResNet    |      -     |   -   | -  | -  |  -   | -  |
+| Start small  |  LeNet     |      -     |   -   | -  | -  |  -   | -  |
+| Start small  |  AlexNet   |      -     |   -   | -  | -  |  -   | -  |
+| Start small  |  ResNet    |      -     |   -   | -  | -  |  -   | -  |
+| Middle-out   |  LeNet     |      -     |   -   | -  | -  |  -   | -  |
+| Middle-out   |  AlexNet   |      -     |   -   | -  | -  |  -   | -  |
+| Middle-out   |  ResNet    |      -     |   -   | -  | -  |  -   | -  |
 
 
 
