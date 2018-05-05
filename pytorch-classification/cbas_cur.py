@@ -287,7 +287,10 @@ def main():
 
         # Train and val
         for epoch in range(start_epoch, args.epochs):
-            adjust_learning_rate(optimizer, epoch)
+            if not args.curr == 'none':
+                adjust_learning_rate(optimizer, (i*epoch)+epoch)
+            else:
+                adjust_learning_rate(optimizer, epoch)
 
             print('\nEpoch: [%d | %d] LR: %f' % (epoch + 1, args.epochs, state['lr']))
 
