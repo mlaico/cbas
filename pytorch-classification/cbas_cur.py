@@ -278,6 +278,8 @@ def main():
 
     # loop over curriculum batch loaders
     for i,loader in enumerate(all_loaders):
+        if not args.curr == 'none':
+                adjust_learning_rate(optimizer, i)
 
         if not args.curr == 'none':
             if args.curr == 'random':
@@ -287,9 +289,7 @@ def main():
 
         # Train and val
         for epoch in range(start_epoch, args.epochs):
-            if not args.curr == 'none':
-                adjust_learning_rate(optimizer, (i*(epoch+1))+epoch+1)
-            else:
+            if args.curr == 'none':
                 adjust_learning_rate(optimizer, epoch)
 
             print('\nEpoch: [%d | %d] LR: %f' % (epoch + 1, args.epochs, state['lr']))
