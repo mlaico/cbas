@@ -5,7 +5,7 @@
 | Curriculum   |	Model     | Conv (eps) | n=1  | 2  | 5  | 	10  | 20 |
 | :------------|  :---------|:---------: | :---: |:--:| :-:| :--: |:--:|
 | None         |  LeNet     |     25     |   -   | -  | -  |  -   | -  |
-| None         |  Dilenet   |     ??     |  5.22 |  7.03 |  8.61 |  9.98 | 12.10 |
+| None         |  DileNet   |     ??     |  5.22 |  7.03 |  8.61 |  9.98 | 12.10 |
 | None         |  AlexNet   |     ??     |  9.08 |  6.83 |  9.40 | 11.34 | 13.09 | 
 | None         |  ResNet    |      -     |   -   | -  | -  |  -   | -  |
 | Random       |  LeNet     |      -     |   -   | -  | -  |  -   | -  |
@@ -18,11 +18,14 @@
 | Start big    |  AlexNet   |      -     |   -   | -  | -  |  -   | -  |
 | Start big    |  ResNet    |      -     |   -   | -  | -  |  -   | -  |
 | Start small  |  LeNet     |      -     |   -   | -  | -  |  -   | -  |
+| Start Small  |  DileNet   |     ??     |  3.42 |  4.09 |  3.94 |  5.64 | 
 | Start small  |  AlexNet   |      -     |   -   | -  | -  |  -   | -  |
 | Start small  |  ResNet    |      -     |   -   | -  | -  |  -   | -  |
 | Middle-out   |  LeNet     |      -     |   -   | -  | -  |  -   | -  |
 | Middle-out   |  AlexNet   |      -     |   -   | -  | -  |  -   | -  |
 | Middle-out   |  ResNet    |      -     |   -   | -  | -  |  -   | -  |
+
+
 
 ## Top-5:
                                           Base classes            Novel classes
@@ -42,6 +45,7 @@
 | Start big    |  AlexNet   |      -     |   -   | -  | -  |  -   | -  |
 | Start big    |  ResNet    |      -     |   -   | -  | -  |  -   | -  |
 | Start small  |  LeNet     |      -     |   -   | -  | -  |  -   | -  |
+| Start Small  |  DileNet   |     ??     |  16.49 | 19.69 | 19.50 | 20.65 | 22.79 | 
 | Start small  |  AlexNet   |      -     |   -   | -  | -  |  -   | -  |
 | Start small  |  ResNet    |      -     |   -   | -  | -  |  -   | -  |
 | Middle-out   |  LeNet     |      -     |   -   | -  | -  |  -   | -  |
