@@ -36,7 +36,8 @@ parser = argparse.ArgumentParser(description='PyTorch CBAS-34 Training')
 parser.add_argument('-d', '--dataset', default='cbas34', type=str)
 parser.add_argument('-j', '--workers', default=2, type=int, metavar='N',
                     help='number of data loading workers (default: 4)')
-parser.add_argument('--curr', default='none', type=str)
+parser.add_argument('--curr', default='none', type=str, metavar='CUR',
+                    help='type of curriculum')
 # Optimization options
 parser.add_argument('--epochs', default=300, type=int, metavar='N',
                     help='number of total epochs to run')
