@@ -123,7 +123,9 @@ def real_time(training_set, model, loss_fn, optimizer, deviations):
         epoch += 1
         print("epoch #%d" % epoch)
         weights = normal_weights(real_time_curr, np.mean(real_time_curr) + deviation * np.std(real_time_curr))
-        weights = weights / np.sum(weights)
+        weight_denom = np.sum(weights)
+        weight_denom = weight_denom if weight_denom != 0 else (1/1e30)
+        weights = weights / weight_denom
         sampler = MyWeightedSampler(weights, num_samples, replacement=True)
         real_time_curriculum_loader = \
             torch.utils.data.DataLoader(training_set, batch_size=4, shuffle=False, sampler=sampler, num_workers=4)
