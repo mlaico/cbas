@@ -4,7 +4,15 @@
 ## Quick setup
 * Download/clone repo
 * Move `images` folder (and it's contents) out from under the `cbas` root directory
-* `cd` into images folder and run `bash images_setup.sh`
+```
+cd cbas
+cp -r images ../
+```
+* `cd` into images folder and run the shell script to unzip the images
+```
+cd ../images
+bash images_setup.sh
+```
 
 ## Full setup
 ### 1.) Download/clone the COCO api from the <a href=https://github.com/cocodataset/cocoapi>COCO github page</a>
