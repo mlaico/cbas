@@ -11,7 +11,7 @@ cp -r images ../
 * `cd` into images folder and run the shell script to unzip the images
 ```
 cd ../images
-bash setuup_images.sh
+bash setup_images.sh
 ```
 
 ## Full setup
