@@ -27,7 +27,7 @@ class ThreeLayer(nn.Module):
         self.classifier = nn.Linear(256, num_classes)
 
     def forward(self, x):
-        x = self.features(x)
+        x = self.convlayers(x)
         x = x.view(x.size(0), -1)
         x = self.lin(x)
         x = self.classifier(x)
