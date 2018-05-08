@@ -12,7 +12,7 @@ class ThreeLayer(nn.Module):
 
     def __init__(self, num_classes=34):
         super(ThreeLayer, self).__init__()
-        self.features = nn.Sequential(
+        self.convlayers = nn.Sequential(
             nn.Conv2d(3, 64, kernel_size=5, stride=1, padding=2),
             nn.ReLU(inplace=True),
             nn.MaxPool2d(kernel_size=2, stride=2),
@@ -23,11 +23,13 @@ class ThreeLayer(nn.Module):
             nn.ReLU(inplace=True),
             nn.MaxPool2d(kernel_size=2, stride=2),
         )
+        self.lin = nn.Linear(4096, 256)
         self.classifier = nn.Linear(256, num_classes)
 
     def forward(self, x):
         x = self.features(x)
         x = x.view(x.size(0), -1)
+        x = self.lin(x)
         x = self.classifier(x)
         return x
 
