@@ -176,6 +176,7 @@ def main():
             BINS.append([ (pixel_counts[2]/image_pixels), (pixel_counts[4]/image_pixels) ])
             BINS.append([ (pixel_counts[2]/image_pixels), (pixel_counts[5]/image_pixels) ])
             BINS.append([ (pixel_counts[1]/image_pixels), (pixel_counts[5]/image_pixels) ])
+            BINS.append([ (pixel_counts[0]/image_pixels), (pixel_counts[5]/image_pixels) ])
         else:
             BINS = [[0.0,1.0]]
 
